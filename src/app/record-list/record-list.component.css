@@ -1,0 +1,31 @@
+.record-list {
+  margin: 10px;
+}
+
+/* .table-container {
+  margin: 10px;
+} */
+
+table {
+  width: 100%;
+  min-height: 180px;
+}
+
+table .mat-button-base {
+  width: 120px;
+  float: right;
+}
+
+.result-list-actions {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 120px;
+}
+.mat-button-base {
+  margin: 8px 8px 8px 0;
+}

@@ -1,0 +1,49 @@
+<div class="record-list">
+
+<h3>List of current road recordings</h3>
+
+  <div class="table-container">
+    <table mat-table [dataSource]="records" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Road </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="surfaceTypeId">
+        <th mat-header-cell *matHeaderCellDef> Surface Type ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.surfaceTypeId}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="surfaceType">
+        <th mat-header-cell *matHeaderCellDef> Surface Type </th>
+        <td mat-cell *matCellDef="let element"> {{getSurfaceTypeName(element.surfaceTypeId)}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="gradeId">
+        <th mat-header-cell *matHeaderCellDef> Grade ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.gradeId}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="grade">
+        <th mat-header-cell *matHeaderCellDef> Grade </th>
+        <td mat-cell *matCellDef="let element"> {{getGradeNameAndDescription(element.gradeId)}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>  </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-stroked-button color="warn" (click)="deleteRecord(element.id)">Delete</button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+  </div>
+  <div class="result-list-actions">
+    <button class="" mat-flat-button  (click)="resetList()">Reset List</button>
+    <button mat-flat-button color="warn" (click)="emptyList()">Remove All</button>
+  </div>
+</div>

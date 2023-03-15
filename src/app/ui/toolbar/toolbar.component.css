@@ -1,0 +1,9 @@
+.logo {
+  position: absolute;
+  right: 50px;
+  display: flex;
+}
+
+img {
+  height: 50px;
+}
