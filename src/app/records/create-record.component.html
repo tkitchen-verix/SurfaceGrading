@@ -1,15 +1,40 @@
-<button *ngIf="!isAdding" (click)="showAddForm()">Add</button>
-<div *ngIf="isAdding">
-    <h4>Create Road</h4>
-    <select [(ngModel)]="newRecord.surfaceTypeId">
-        <option [ngValue]="0" selected>Surface Types</option>
-        <option *ngFor="let surfaceType of surfaceTypes" [ngValue]="surfaceType.id">{{surfaceType.name}}</option>
-    </select>
-    <br><br>
-    <select [(ngModel)]="newRecord.gradeId">
-        <option [ngValue]="0" selected>Grades</option>
-        <option *ngFor="let grade of grades" [ngValue]="grade.id">{{grade.name}} | {{grade.description}}</option>
-    </select>
-    <br> <br>
-    <button (click)="submit()" [disabled]="!canSubmit()">Submit</button>
+
+<div class="create-record-container">
+  <h3>Add new Road Record</h3>
+
+  <button id="add-record-button"  *ngIf="!isAdding" class="" mat-flat-button  (click)="showAddForm()">Add</button>
+
+  <div id="add-record-form" *ngIf="isAdding">
+    <mat-card>
+
+      <mat-card-subtitle>Create Road</mat-card-subtitle>
+      <mat-form-field class="full-width">
+        <mat-label>Surface Type</mat-label>
+        <mat-select [(ngModel)]="newRecord.surfaceTypeId" name="surfaceType">
+          <mat-option *ngFor="let surfaceType of surfaceTypes | async" [value]="surfaceType.id">
+            {{surfaceType.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <br><br>
+
+      <mat-form-field class="full-width">
+        <mat-label>Grade</mat-label>
+        <mat-select [(ngModel)]="newRecord.gradeId" name="grade">
+          <mat-option *ngFor="let grade of grades | async" [value]="grade.id">
+            {{grade.name}} | {{grade.description}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <br> <br>
+      <mat-card-actions align="end">
+        <button id="add-record-button"  [disabled]="!canSubmit()" mat-stroked-button   (click)="submit()">Submit</button>
+      </mat-card-actions>
+
+    </mat-card>
+
+  </div>
 </div>
+

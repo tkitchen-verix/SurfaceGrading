@@ -3,3 +3,9 @@ body{
     font-family: 'Franklin Gothic', 'Arial Narrow', Arial, sans-serif;
     background-color:lightgray;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.full-width {
+  width: 100%;
+}

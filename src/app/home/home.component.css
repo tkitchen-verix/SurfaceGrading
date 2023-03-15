@@ -1,6 +1,5 @@
-.logo {
-  position: absolute;
-  right: 50px;
+.application-container {
+  margin: 20px;
 }
 
 .left-side {
@@ -22,7 +21,7 @@
   font-weight: bold;
 }
 
-.table-cell-width { 
+.table-cell-width {
   width: 20%;
 }
 
